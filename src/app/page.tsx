@@ -1,9 +1,19 @@
-import Image from "next/image";
+import { CarouselDemo } from "@/components/CarouselDemo";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ProductCard from "@/components/ProductCard";
+import Slider from "@/components/Slider";
 
 export default function Home() {
   return (
-    <div>
-      hello interns
-    </div>
+      <>
+      <Header />
+      {/* <CarouselDemo /> */}
+      <Slider />
+      <ProductCard  />
+      <Footer />
+      </>
+      
+
   );
 }
