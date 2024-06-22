@@ -8,7 +8,7 @@ interface Product {
   [key: string]: any; // For additional properties
 }
 
-const dataFilePath = path.join(process.cwd(), 'data.json');
+const dataFilePath = path.join(process.cwd(), 'public', 'data.json');
 
 // Ensure the data file exists
 const ensureDataFileExists = (): void => {

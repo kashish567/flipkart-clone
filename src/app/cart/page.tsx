@@ -1,0 +1,61 @@
+"use client";
+import CartProduct from "@/components/CartProduct";
+import Header from "@/components/Header";
+import React from "react";
+import { useEffect, useState } from "react";
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  rating: number;
+  image: string;
+  count: number;
+}
+const page = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data.json"); // Path to your data.json file in the public directory
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setProducts(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <Header count={products.length} />
+      <div className="bg-slate-100 py-5 px-32">
+        <div className="flex bg-white shadow-sm justify-between items-center py-2 text-[12px] px-4 h-12 w-[700px]">
+          From Saved Address
+          <button className="border-2 rounded-md text-blue-600 p-2 font-semibold hover:shadow-md">
+            Enter Delivery Pincode
+          </button>
+        </div>
+        <div className="my-3 bg-white w-[700px] h-[400px]">
+          {products.map((product) => (
+            <CartProduct
+              key={product?.id}
+              title={product.title}
+              price={product.price}
+              rating={product.rating}
+              image={product.image}
+              count={product.count}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default page;

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Pink",
+    "price": 599,
+    "rating": 5,
+    "image": "/product2.webp",
+    "count": 2
+  },
+  {
+    "id": 2,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Blue",
+    "price": 699,
+    "rating": 4,
+    "image": "/product2.webp",
+    "count": 1
+  },
+  {
+    "id": 4,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Red",
+    "price": 899,
+    "rating": 2,
+    "image": "/product4.webp",
+    "count": 1
+  },
+  {
+    "id": 6,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Pink",
+    "price": 599,
+    "rating": 5,
+    "image": "/product2.webp",
+    "count": 1
+  },
+  {
+    "id": 8,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Pink",
+    "price": 599,
+    "rating": 5,
+    "image": "/product2.webp",
+    "count": 1
+  }
+]

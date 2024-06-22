@@ -8,6 +8,7 @@ import ProductCard from "@/components/ProductCard";
 import Slider from "@/components/Slider";
 import { Products } from "@/product";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
   const productHandler = async (id: number) => {
@@ -26,9 +27,27 @@ export default function Home() {
       console.error("Error adding product:", error);
     }
   };
+
+  const [cartProduct, setCartProduct] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data.json"); // Path to your data.json file in the public directory
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setCartProduct(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
-      <Header />
+      {cartProduct.length >= 0 && <Header count={cartProduct.length} />}
       <HeroSection />
       {/* <CarouselDemo /> */}
       <Slider />
