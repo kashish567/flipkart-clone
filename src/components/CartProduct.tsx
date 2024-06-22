@@ -7,6 +7,8 @@ interface CartProductProps {
   image: string;
   rating: number;
   count: number;
+  removeProduct: (id: number) => void;
+  id: number;
 }
 
 const CartProduct: React.FC<CartProductProps> = ({
@@ -15,6 +17,8 @@ const CartProduct: React.FC<CartProductProps> = ({
   image,
   rating,
   count,
+  removeProduct,
+  id,
 }) => {
   return (
     <div className=" bg-white py-4 px-6 h-[150px] w-[700px] border-b-2 border-slate-100 ">
@@ -50,7 +54,10 @@ const CartProduct: React.FC<CartProductProps> = ({
         <div className="mx-4 text-[14px] my-1 font-semibold hover:text-blue-500">
           SAVE FOR LATER
         </div>
-        <div className="mx-4 text-[14px] my-1 font-semibold hover:text-blue-500">
+        <div
+          className="mx-4 text-[14px] my-1 font-semibold hover:text-blue-500"
+          onClick={() => removeProduct(id)}
+        >
           REMOVE
         </div>
       </div>

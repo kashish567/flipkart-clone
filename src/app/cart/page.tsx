@@ -3,6 +3,7 @@ import CartProduct from "@/components/CartProduct";
 import Header from "@/components/Header";
 import React from "react";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface Product {
   id: number;
@@ -31,6 +32,22 @@ const page = () => {
     fetchData();
   }, []);
 
+  const removeProduct = async (id: number) => {
+    try {
+      const response = await axios.delete("/api/deleteproduct", {
+        data: { id },
+      });
+      if (!response) {
+        throw new Error("Failed to delete product");
+      }
+      setProducts((prevProducts) =>
+        prevProducts.filter((item) => item.id !== id)
+      );
+    } catch (error) {
+      console.error("Error removing product:", error);
+    }
+  };
+
   return (
     <>
       <Header count={products.length} />
@@ -41,9 +58,11 @@ const page = () => {
             Enter Delivery Pincode
           </button>
         </div>
-        <div className="my-3 bg-white w-[700px] h-[400px]">
+        <div className="my-3 bg-white w-[700px]">
           {products.map((product) => (
             <CartProduct
+              id={product.id}
+              removeProduct={removeProduct}
               key={product?.id}
               title={product.title}
               price={product.price}

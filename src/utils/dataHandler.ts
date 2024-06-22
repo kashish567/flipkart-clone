@@ -3,7 +3,7 @@ import path from 'path';
 
 // Define the shape of the product
 interface Product {
-  id: string;
+  id: number;
   count?: number;
   [key: string]: any; // For additional properties
 }
@@ -50,4 +50,15 @@ export const addOrUpdateProduct = (product: Product): boolean => {
   writeData(data);
 
   return !existingProduct; // Return true if added, false if count was incremented
+};
+
+export const deleteProductById = (id : number) => {
+  let data = readData();
+
+  // Filter out the product with the specified id
+  data = data.filter((product) => product.id !== id);
+
+  writeData(data);
+
+  return !(data.length !== data.length); // Return true if a product was deleted, false otherwise
 };
