@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import product2 from "../../public/product2.webp";
+import { Button } from "./ui/button";
 // import product3 from "../../public/product3.webp";
 // import product4 from "../../public/product4.webp";
 
 interface ProductCardProps {
   title: string;
+  id: number;
+  handleClick: (id: number) => void;
   price: number;
   rating: number;
   image: string;
@@ -13,6 +17,8 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({
   title,
+  id,
+  handleClick,
   price,
   rating,
   image,
@@ -57,12 +63,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               {price}
             </span>
-            <a
-              href="#"
+            <button
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => handleClick(id)}
             >
               Add to cart
-            </a>
+            </button>
           </div>
         </div>
       </div>

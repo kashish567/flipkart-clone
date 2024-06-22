@@ -1,3 +1,4 @@
+"use client";
 // import { CarouselDemo } from "@/components/CarouselDemo";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -5,66 +6,26 @@ import HeroSection from "@/components/HeroSection";
 import Info from "@/components/Info";
 import ProductCard from "@/components/ProductCard";
 import Slider from "@/components/Slider";
+import { Products } from "@/product";
+import axios from "axios";
 
 export default function Home() {
-  const Products = [
-    {
-      id: 1,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Pink",
-      price: 599,
-      rating: 5,
-      image: "/product2.webp",
-    },
-    {
-      id: 2,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Blue",
-      price: 699,
-      rating: 4,
-      image: "/product2.webp",
-    },
-    {
-      id: 3,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Green",
-      price: 799,
-      rating: 3,
-      image: "/product3.webp",
-    },
-    {
-      id: 4,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Red",
-      price: 899,
-      rating: 2,
-      image: "/product4.webp",
-    },
-    {
-      id: 5,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Pink",
-      price: 599,
-      rating: 5,
-      image: "/product2.webp",
-    },
-    {
-      id: 6,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Pink",
-      price: 599,
-      rating: 5,
-      image: "/product2.webp",
-    },
-    {
-      id: 7,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Pink",
-      price: 599,
-      rating: 5,
-      image: "/product2.webp",
-    },
-    {
-      id: 8,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Pink",
-      price: 599,
-      rating: 5,
-      image: "/product2.webp",
-    },
-  ];
+  const productHandler = async (id: number) => {
+    const product = Products.find((product) => product.id === id);
+    if (!product) return;
+
+    try {
+      const response = await axios.post("/api/product", product, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(response.data.message); // Display the result message
+    } catch (error) {
+      console.error("Error adding product:", error);
+    }
+  };
   return (
     <>
       <Header />
@@ -76,6 +37,8 @@ export default function Home() {
         {Products.map((product) => (
           <ProductCard
             key={product.id}
+            id={product.id}
+            handleClick={productHandler}
             title={product.title}
             rating={product.rating}
             price={product.price}
