@@ -43,6 +43,7 @@ const page = () => {
       setProducts((prevProducts) =>
         prevProducts.filter((item) => item.id !== id)
       );
+      alert("Product removed successfully!");
     } catch (error) {
       console.error("Error removing product:", error);
     }

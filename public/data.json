@@ -1,6 +1,6 @@
 [
   {
-    "id": 6,
+    "id": 1,
     "title": "Apple Watch Series 7 GPS, Aluminium Case, Pink",
     "price": 599,
     "rating": 5,
@@ -8,11 +8,11 @@
     "count": 1
   },
   {
-    "id": 8,
-    "title": "Apple Watch Series 7 GPS, Aluminium Case, Pink",
-    "price": 599,
-    "rating": 5,
-    "image": "/product2.webp",
+    "id": 3,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Green",
+    "price": 799,
+    "rating": 3,
+    "image": "/product3.webp",
     "count": 1
   }
 ]

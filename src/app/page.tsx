@@ -21,6 +21,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
       });
+      alert("Product added successfully!");
 
       console.log(response.data.message); // Display the result message
     } catch (error) {
