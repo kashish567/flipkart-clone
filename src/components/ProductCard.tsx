@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import product2 from "../../public/product2.webp";
-import { Button } from "./ui/button";
 // import product3 from "../../public/product3.webp";
 // import product4 from "../../public/product4.webp";
 

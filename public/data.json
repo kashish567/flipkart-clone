@@ -13,6 +13,14 @@
     "price": 599,
     "rating": 5,
     "image": "/product2.webp",
+    "count": 2
+  },
+  {
+    "id": 3,
+    "title": "Apple Watch Series 7 GPS, Aluminium Case, Green",
+    "price": 799,
+    "rating": 3,
+    "image": "/product3.webp",
     "count": 1
   }
 ]
